@@ -84,10 +84,28 @@ let eightNumbers = (input) => {
     basicChallenge.append(outputDiv)
 }
 
+let squaredNumbers = (input) => {
+    let outputDiv = document.createElement('p')
+    let squaredNumbersArr = []
 
+    for(i = 0; i < input.length; i++) {
+        squaredNumbersArr.push(input[i] ** 2)
+    }
+
+    for(i = 0; i < squaredNumbersArr.length; i++) {
+        if(i === squaredNumbersArr.length - 1) {
+            outputDiv.append(JSON.stringify(squaredNumbersArr[i]))
+        } else {
+            outputDiv.append(JSON.stringify(squaredNumbersArr[i]) + ', ')
+        }
+    }
+
+    basicChallenge.append(outputDiv)
+}
 
 //run the functions
 allNumbers(sampleArray)
 evenNumbers(sampleArray)
 oddNumbers(sampleArray)
 eightNumbers(sampleArray)
+squaredNumbers(sampleArray)
