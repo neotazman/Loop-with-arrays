@@ -7,8 +7,9 @@ const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 39
 
 let basicChallenge = document.getElementById('basicChallenge');
 
-let basic1 = (input) => {
+let allNumbers = (input) => {
     let outputDiv = document.createElement('p')
+
     for(i = 0; i < input.length; i++) {
         if(i === input.length - 1) {
             outputDiv.append(JSON.stringify(input[i]));
@@ -16,26 +17,52 @@ let basic1 = (input) => {
             outputDiv.append(JSON.stringify(input[i]) + ', ');
         }
     }
+
     basicChallenge.append(outputDiv)
 }
 
-let basic2 = (input) => {
+let evenNumbers = (input) => {
     let outputDiv = document.createElement('p')
-    let evenNumbers = []
+    let evenNumbersArr = []
+
     for(i = 0; i < input.length; i++) {
         if(input[i] % 2 === 0) {
-            evenNumbers.push(input[i])
+            evenNumbersArr.push(input[i])
         }
     }
-    for(i = 0; i < evenNumbers.length; i++) {
-        if(i === evenNumbers.length - 1) {
-            outputDiv.append(JSON.stringify(evenNumbers[i]))
+
+    for(i = 0; i < evenNumbersArr.length; i++) {
+        if(i === evenNumbersArr.length - 1) {
+            outputDiv.append(JSON.stringify(evenNumbersArr[i]))
         } else {
-            outputDiv.append(JSON.stringify(evenNumbers[i]) + ', ')
+            outputDiv.append(JSON.stringify(evenNumbersArr[i]) + ', ')
         }
     }
+
     basicChallenge.append(outputDiv)
 }
 
-basic1(sampleArray)
-basic2(sampleArray)
+let oddNumbers = (input) => {
+    let outputDiv = document.createElement('div')
+    let oddNumbersArr = []
+
+    for(i = 0; i < input.length; i++) {
+        if(input[i] % 2 === 1) {
+            oddNumbersArr.push(input[i])
+        }
+    }
+
+    for(i = 0; i < oddNumbersArr.length; i++) {
+        if(i === oddNumbersArr.length - 1) {
+            outputDiv.append(JSON.stringify(oddNumbersArr[i]))
+        } else {
+            outputDiv.append(JSON.stringify(oddNumbersArr[i]) + ', ')
+        }
+    }
+
+    basicChallenge.append(outputDiv)
+}
+
+allNumbers(sampleArray)
+evenNumbers(sampleArray)
+oddNumbers(sampleArray)
