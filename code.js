@@ -63,9 +63,31 @@ let oddNumbers = (input) => {
     basicChallenge.append(outputDiv)
 }
 
+let eightNumbers = (input) => {
+    let outputDiv = document.createElement('p')
+    let eightNumbersArr = []
+
+    for(i = 0; i < input.length; i++) {
+        if(input[i] % 8 === 0) {
+            eightNumbersArr.push(input[i])
+        }
+    }
+
+    for(i = 0; i < eightNumbersArr.length; i++) {
+        if(i === eightNumbersArr.length - 1) {
+            outputDiv.append(JSON.stringify(eightNumbersArr[i]))
+        } else {
+            outputDiv.append(JSON.stringify(eightNumbersArr[i]) + ', ')
+        }
+    }
+
+    basicChallenge.append(outputDiv)
+}
+
 
 
 //run the functions
 allNumbers(sampleArray)
 evenNumbers(sampleArray)
 oddNumbers(sampleArray)
+eightNumbers(sampleArray)
