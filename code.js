@@ -21,11 +21,21 @@ let basic1 = (input) => {
 
 let basic2 = (input) => {
     let outputDiv = document.createElement('p')
+    let evenNumbers = []
     for(i = 0; i < input.length; i++) {
-        if(i === input.length - 1) {
-            
+        if(input[i] % 2 === 0) {
+            evenNumbers.push(input[i])
         }
     }
+    for(i = 0; i < evenNumbers.length; i++) {
+        if(i === evenNumbers.length - 1) {
+            outputDiv.append(JSON.stringify(evenNumbers[i]))
+        } else {
+            outputDiv.append(JSON.stringify(evenNumbers[i]) + ', ')
+        }
+    }
+    basicChallenge.append(outputDiv)
 }
 
 basic1(sampleArray)
+basic2(sampleArray)
