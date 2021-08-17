@@ -103,9 +103,23 @@ let squaredNumbers = (input) => {
     basicChallenge.append(outputDiv)
 }
 
+let totalSum = (input) => {
+    let outputDiv = document.createElement('p')
+    let sum = 0
+
+    for(i = 0; i < input.length; i++) {
+        sum += input[i]
+    }
+    
+    outputDiv.append(JSON.stringify(sum))
+
+    basicChallenge.append(outputDiv)
+}
+
 //run the functions
 allNumbers(sampleArray)
 evenNumbers(sampleArray)
 oddNumbers(sampleArray)
 eightNumbers(sampleArray)
 squaredNumbers(sampleArray)
+totalSum(sampleArray)
