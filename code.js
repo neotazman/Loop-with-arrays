@@ -5,9 +5,9 @@ const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 39
 
 // Your code here
 
-let basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs
+const basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs
 
-let allNumbers = (input) => {
+const allNumbers = (input) => {
     let outputDiv = document.createElement('p') //creates a line with the answers
 
     for(i = 0; i < input.length; i++) {
@@ -17,11 +17,10 @@ let allNumbers = (input) => {
             outputDiv.append(JSON.stringify(input[i]) + ', ');
         }
     }
-
-    basicChallenge.append(outputDiv) //appends the string to the basic challenge div
+    return outputDiv;
 }
 
-let evenNumbers = (input) => {
+const evenNumbers = (input) => {
     let outputDiv = document.createElement('p')
     let evenNumbersArr = [] //creates a new array to put all the even numbers
 
@@ -39,10 +38,10 @@ let evenNumbers = (input) => {
         }
     }
 
-    basicChallenge.append(outputDiv)
+    return outputDiv
 }
 
-let oddNumbers = (input) => {
+const oddNumbers = (input) => {
     let outputDiv = document.createElement('div')
     let oddNumbersArr = []
 
@@ -60,10 +59,10 @@ let oddNumbers = (input) => {
         }
     }
 
-    basicChallenge.append(outputDiv)
+    return outputDiv
 }
 
-let eightNumbers = (input) => {
+const eightNumbers = (input) => {
     let outputDiv = document.createElement('p')
     let eightNumbersArr = []
 
@@ -81,10 +80,10 @@ let eightNumbers = (input) => {
         }
     }
 
-    basicChallenge.append(outputDiv)
+    return outputDiv
 }
 
-let squaredNumbers = (input) => {
+const squaredNumbers = (input) => {
     let outputDiv = document.createElement('p')
     let squaredNumbersArr = []
 
@@ -100,10 +99,10 @@ let squaredNumbers = (input) => {
         }
     }
 
-    basicChallenge.append(outputDiv)
+    return outputDiv
 }
 
-let totalSum = (input) => {
+const totalSum = (input) => {
     let outputDiv = document.createElement('p')
     let sum = 0
 
@@ -113,13 +112,41 @@ let totalSum = (input) => {
     
     outputDiv.append(JSON.stringify(sum))
 
-    basicChallenge.append(outputDiv)
+    return outputDiv
+}
+
+const smallestNumber = (input) => {
+    let outputDiv = document.createElement('p')
+    let smallestNum = Number.POSITIVE_INFINITY
+
+    for(i = 0; i < input.length; i++) {
+        if(input[i] < smallestNum) {
+            smallestNum = input[i]
+        }
+    }
+    outputDiv.append(JSON.stringify(smallestNum))
+    return outputDiv
+}
+
+const largestNumber = (input) => {
+    let outputDiv = document.createElement('p')
+    let largestNum = Number.NEGATIVE_INFINITY
+
+    for(i = 0; i < input.length; i++) {
+        if(input[i] > largestNum) {
+            largestNum = input[i]
+        }
+    }
+    outputDiv.append(JSON.stringify(largestNum))
+    return outputDiv
 }
 
 //run the functions
-allNumbers(sampleArray)
-evenNumbers(sampleArray)
-oddNumbers(sampleArray)
-eightNumbers(sampleArray)
-squaredNumbers(sampleArray)
-totalSum(sampleArray)
+basicChallenge.append(allNumbers(sampleArray)) 
+basicChallenge.append(evenNumbers(sampleArray)) 
+basicChallenge.append(oddNumbers(sampleArray)) 
+basicChallenge.append(eightNumbers(sampleArray)) 
+basicChallenge.append(squaredNumbers(sampleArray)) 
+basicChallenge.append(totalSum(sampleArray)) 
+basicChallenge.append(smallestNumber(sampleArray))
+basicChallenge.append(largestNumber(sampleArray))
