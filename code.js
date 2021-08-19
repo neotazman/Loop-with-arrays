@@ -1,17 +1,28 @@
 
 //To be used for the Basic Level:
 const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 398, 339, 882, 848, 179, 535, 940, 472];
+const edgeCaseArray = [6, 24, 865, 300, '84', 5, 324, 'twenty-seven', 52, 8.32, 99, 333.333, 'popsicles']
 
 
 // Your code here
 
 const basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs
 
+const isNumber = (input) => {
+    if(typeof input === 'number') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const allNumbers = (input) => {
     let outputDiv = document.createElement('p') //creates a line with the answers
 
     for(i = 0; i < input.length; i++) {
-        if(i === input.length - 1) { //if it's the last one, there is no comma at the end
+        if(!isNumber(input[i])) {
+            continue;
+        } else if(i === input.length - 1) { //if it's the last one, there is no comma at the end
             outputDiv.append(JSON.stringify(input[i]));
         } else {
             outputDiv.append(JSON.stringify(input[i]) + ', ');
@@ -88,7 +99,9 @@ const squaredNumbers = (input) => {
     let squaredNumbersArr = []
 
     for(i = 0; i < input.length; i++) {
-        squaredNumbersArr.push(input[i] ** 2)
+        if(isNumber(input[i])) {
+            squaredNumbersArr.push(input[i] ** 2)
+        }
     }
 
     for(i = 0; i < squaredNumbersArr.length; i++) {
@@ -107,7 +120,9 @@ const totalSum = (input) => {
     let sum = 0
 
     for(i = 0; i < input.length; i++) {
-        sum += input[i]
+        if(isNumber(input[i])) {
+            sum += input[i]
+        }
     }
     
     outputDiv.append(JSON.stringify(sum))
@@ -120,7 +135,7 @@ const smallestNumber = (input) => {
     let smallestNum = Number.POSITIVE_INFINITY
 
     for(i = 0; i < input.length; i++) {
-        if(input[i] < smallestNum) {
+        if(input[i] < smallestNum && isNumber(input[i])) { //checks if value is a number and is less than all previou numbers
             smallestNum = input[i]
         }
     }
@@ -133,7 +148,7 @@ const largestNumber = (input) => {
     let largestNum = Number.NEGATIVE_INFINITY
 
     for(i = 0; i < input.length; i++) {
-        if(input[i] > largestNum) {
+        if(input[i] > largestNum && isNumber(input[i])) {
             largestNum = input[i]
         }
     }
@@ -141,12 +156,27 @@ const largestNumber = (input) => {
     return outputDiv
 }
 
-//run the functions
+//test the functions
 basicChallenge.append(allNumbers(sampleArray)) 
+basicChallenge.append(allNumbers(edgeCaseArray)) 
+
 basicChallenge.append(evenNumbers(sampleArray)) 
+basicChallenge.append(evenNumbers(edgeCaseArray)) 
+
 basicChallenge.append(oddNumbers(sampleArray)) 
+basicChallenge.append(oddNumbers(edgeCaseArray)) 
+
 basicChallenge.append(eightNumbers(sampleArray)) 
+basicChallenge.append(eightNumbers(edgeCaseArray)) 
+
 basicChallenge.append(squaredNumbers(sampleArray)) 
+basicChallenge.append(squaredNumbers(edgeCaseArray)) 
+
 basicChallenge.append(totalSum(sampleArray)) 
+basicChallenge.append(totalSum(edgeCaseArray)) 
+
 basicChallenge.append(smallestNumber(sampleArray))
+basicChallenge.append(smallestNumber(edgeCaseArray))
+
 basicChallenge.append(largestNumber(sampleArray))
+basicChallenge.append(largestNumber(edgeCaseArray))
