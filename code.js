@@ -8,7 +8,7 @@ const edgeCaseArray = [6, 24, 865, 300, '84', 5, 324, 'twenty-seven', 52, 8.32, 
 
 const basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs
 
-const isNumber = (input) => {
+const isNumber = (input) => { //check if the input is a number
     if(typeof input === 'number') {
         return true;
     } else {
@@ -16,12 +16,12 @@ const isNumber = (input) => {
     }
 }
 
-const allNumbers = (input) => {
+const allNumbers = (input) => { // writes all numbers
     let outputDiv = document.createElement('p') //creates a line with the answers
 
     for(i = 0; i < input.length; i++) {
         if(!isNumber(input[i])) {
-            continue;
+            continue; //skips non-numbers
         } else if(i === input.length - 1) { //if it's the last one, there is no comma at the end
             outputDiv.append(JSON.stringify(input[i]));
         } else {
@@ -36,7 +36,7 @@ const evenNumbers = (input) => {
     let evenNumbersArr = [] //creates a new array to put all the even numbers
 
     for(i = 0; i < input.length; i++) { //filters out the odd numbers
-        if(input[i] % 2 === 0) {
+        if(input[i] % 2 === 0) { //automatically rules out non-numbers
             evenNumbersArr.push(input[i])
         }
     }
@@ -73,7 +73,7 @@ const oddNumbers = (input) => {
     return outputDiv
 }
 
-const eightNumbers = (input) => {
+const eightNumbers = (input) => { // writes numbers that are divisible by 8
     let outputDiv = document.createElement('p')
     let eightNumbersArr = []
 
