@@ -200,6 +200,26 @@ const divisibleBySeven = () => {
     return outputDiv
 }
 
+const sevenAndThree = () => { // divisible by seven or three
+    let outputDiv = document.createElement('p')
+    let numContainer = []
+
+    for(let i = 1; i < 100; i++) {
+        if(i % 3 === 0 || i % 7 === 0) {
+            numContainer.unshift(i) //this is written backwards
+        }
+    }
+
+    for(let i = 0; i < numContainer.length; i++) {
+        if(i === numContainer.length - 1) {
+            outputDiv.append(JSON.stringify(numContainer[i]))
+        } else {
+            outputDiv.append(JSON.stringify(numContainer[i]) + ', ')
+        }
+    }
+    return outputDiv
+}
+
 //test the functions
 
 //starting with basic challenge tests
@@ -231,3 +251,5 @@ basicChallenge.append(largestNumber(edgeCaseArray))
 intermediateChallenge.append(divisibleByThree())
 
 intermediateChallenge.append(divisibleBySeven())
+
+intermediateChallenge.append(sevenAndThree())
