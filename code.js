@@ -220,6 +220,27 @@ const sevenAndThree = () => { // divisible by seven or three
     return outputDiv
 }
 
+const oddByFive = () => { // divisible by five, but has to be odd
+    let outputDiv = document.createElement('p')
+    let numContainer = []
+
+    for(let i = 1; i < 100; i++) {
+        if(i % 5 === 0 && i % 10 !== 0) {
+            numContainer.push(i)
+        }
+    }
+
+    for(let i = 0; i < numContainer.length; i++) {
+        if(i === numContainer.length - 1) {
+            outputDiv.append(JSON.stringify(numContainer[i]))
+        } else {
+            outputDiv.append(JSON.stringify(numContainer[i]) + ', ')
+        }
+    }
+
+    return outputDiv
+}
+
 //test the functions
 
 //starting with basic challenge tests
@@ -253,3 +274,5 @@ intermediateChallenge.append(divisibleByThree())
 intermediateChallenge.append(divisibleBySeven())
 
 intermediateChallenge.append(sevenAndThree())
+
+intermediateChallenge.append(oddByFive())
