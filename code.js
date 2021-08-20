@@ -160,6 +160,14 @@ const largestNumber = (input) => {
 //the Intermediate Challenge
 const intermediateChallenge = document.getElementById('intermediateChallenge');
 
+const isInteger = (input) => {
+    if(isNumber(input) && input === Math.floor(input)) {
+        return true
+    } else {
+        return false
+    }
+}
+
 const divisibleByThree = () => {
     let outputDiv = document.createElement('p')
     let threeContainer = []
@@ -241,7 +249,7 @@ const oddByFive = () => { // divisible by five, but has to be odd
     return outputDiv
 }
 
-const sumToTwenty = () => { 
+const sumToTwenty = () => { //the sum of all the numbers up to twenty
     let outputDiv = document.createElement('p')
     let totalSum = 0
 
@@ -250,6 +258,25 @@ const sumToTwenty = () => {
     }
 
     outputDiv.append(JSON.stringify(totalSum))
+    return outputDiv
+}
+
+const upPositives = (a, b) => {
+    let outputDiv = document.createElement('p')
+
+    if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a < b) {
+        for(let i = a; i <= b; i++) {
+            if(i = b) {
+                outputDiv.append(JSON.stringify(i))
+            } else {
+                console.log(i)
+                outputDiv.append(JSON.stringify(i) + ', ')
+            }
+        }
+    } else {
+        outputDiv.append('Parameters must be positive integers and a must be less than b')
+    }
+
     return outputDiv
 }
 
@@ -290,3 +317,6 @@ intermediateChallenge.append(sevenAndThree())
 intermediateChallenge.append(oddByFive())
 
 intermediateChallenge.append(sumToTwenty())
+
+intermediateChallenge.append(upPositives(3, 16))
+intermediateChallenge.append(upPositives(40, '31'))
