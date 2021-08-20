@@ -6,7 +6,8 @@ const edgeCaseArray = [6, 24, 865, 300, '84', 5, 324, 'twenty-seven', 52, 8.32, 
 
 // Your code here
 
-const basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs
+//the Basic Challenge
+const basicChallenge = document.getElementById('basicChallenge'); // the element that is displaying the outputDivs, i know the outputDivs are now paragraph elements, but it still tells me what the element is
 
 const isNumber = (input) => { //check if the input is a number
     if(typeof input === 'number') {
@@ -19,7 +20,7 @@ const isNumber = (input) => { //check if the input is a number
 const allNumbers = (input) => { // writes all numbers
     let outputDiv = document.createElement('p') //creates a line with the answers
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(!isNumber(input[i])) {
             continue; //skips non-numbers
         } else if(i === input.length - 1) { //if it's the last one, there is no comma at the end
@@ -35,13 +36,13 @@ const evenNumbers = (input) => {
     let outputDiv = document.createElement('p')
     let evenNumbersArr = [] //creates a new array to put all the even numbers
 
-    for(i = 0; i < input.length; i++) { //filters out the odd numbers
+    for(let i = 0; i < input.length; i++) { //filters out the odd numbers
         if(input[i] % 2 === 0) { //automatically rules out non-numbers
             evenNumbersArr.push(input[i])
         }
     }
 
-    for(i = 0; i < evenNumbersArr.length; i++) { //writes the even numbers into a string
+    for(let i = 0; i < evenNumbersArr.length; i++) { //writes the even numbers into a string
         if(i === evenNumbersArr.length - 1) {
             outputDiv.append(JSON.stringify(evenNumbersArr[i]))
         } else {
@@ -53,16 +54,16 @@ const evenNumbers = (input) => {
 }
 
 const oddNumbers = (input) => {
-    let outputDiv = document.createElement('div')
+    let outputDiv = document.createElement('p')
     let oddNumbersArr = []
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(input[i] % 2 === 1) {
             oddNumbersArr.push(input[i])
         }
     }
 
-    for(i = 0; i < oddNumbersArr.length; i++) {
+    for(let i = 0; i < oddNumbersArr.length; i++) {
         if(i === oddNumbersArr.length - 1) {
             outputDiv.append(JSON.stringify(oddNumbersArr[i]))
         } else {
@@ -77,13 +78,13 @@ const eightNumbers = (input) => { // writes numbers that are divisible by 8
     let outputDiv = document.createElement('p')
     let eightNumbersArr = []
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(input[i] % 8 === 0) {
             eightNumbersArr.push(input[i])
         }
     }
 
-    for(i = 0; i < eightNumbersArr.length; i++) {
+    for(let i = 0; i < eightNumbersArr.length; i++) {
         if(i === eightNumbersArr.length - 1) {
             outputDiv.append(JSON.stringify(eightNumbersArr[i]))
         } else {
@@ -98,13 +99,13 @@ const squaredNumbers = (input) => {
     let outputDiv = document.createElement('p')
     let squaredNumbersArr = []
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(isNumber(input[i])) {
             squaredNumbersArr.push(input[i] ** 2)
         }
     }
 
-    for(i = 0; i < squaredNumbersArr.length; i++) {
+    for(let i = 0; i < squaredNumbersArr.length; i++) {
         if(i === squaredNumbersArr.length - 1) {
             outputDiv.append(JSON.stringify(squaredNumbersArr[i]))
         } else {
@@ -119,7 +120,7 @@ const totalSum = (input) => {
     let outputDiv = document.createElement('p')
     let sum = 0
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(isNumber(input[i])) {
             sum += input[i]
         }
@@ -134,7 +135,7 @@ const smallestNumber = (input) => {
     let outputDiv = document.createElement('p')
     let smallestNum = Number.POSITIVE_INFINITY
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(input[i] < smallestNum && isNumber(input[i])) { //checks if value is a number and is less than all previou numbers
             smallestNum = input[i]
         }
@@ -147,7 +148,7 @@ const largestNumber = (input) => {
     let outputDiv = document.createElement('p')
     let largestNum = Number.NEGATIVE_INFINITY
 
-    for(i = 0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(input[i] > largestNum && isNumber(input[i])) {
             largestNum = input[i]
         }
@@ -156,7 +157,52 @@ const largestNumber = (input) => {
     return outputDiv
 }
 
+//the Intermediate Challenge
+const intermediateChallenge = document.getElementById('intermediateChallenge');
+
+const divisibleByThree = () => {
+    let outputDiv = document.createElement('p')
+    let threeContainer = []
+
+    for(let i = 1; i < 100; i++) {
+        if(i % 3 === 0) {
+            threeContainer.push(i)
+        }
+    }
+
+    for(let i = 0; i < threeContainer.length; i++) {
+        if(i === threeContainer.length - 1) {
+            outputDiv.append(JSON.stringify(threeContainer[i]))
+        } else {
+            outputDiv.append(JSON.stringify(threeContainer[i]) + ', ')
+        }
+    }
+    return outputDiv
+}
+
+const divisibleBySeven = () => {
+    let outputDiv = document.createElement('p')
+    let sevenContainer = []
+
+    for(let i = 1; i < 100; i++) {
+        if(i % 7 === 0) {
+            sevenContainer.push(i)
+        }
+    }
+
+    for(let i = 0; i < sevenContainer.length; i++) {
+        if(i === sevenContainer.length - 1) {
+            outputDiv.append(JSON.stringify(sevenContainer[i]))
+        } else {
+            outputDiv.append(JSON.stringify(sevenContainer[i]) + ', ')
+        }
+    }
+    return outputDiv
+}
+
 //test the functions
+
+//starting with basic challenge tests
 basicChallenge.append(allNumbers(sampleArray)) 
 basicChallenge.append(allNumbers(edgeCaseArray)) 
 
@@ -180,3 +226,8 @@ basicChallenge.append(smallestNumber(edgeCaseArray))
 
 basicChallenge.append(largestNumber(sampleArray))
 basicChallenge.append(largestNumber(edgeCaseArray))
+
+//now the intermediate challenges
+intermediateChallenge.append(divisibleByThree())
+
+intermediateChallenge.append(divisibleBySeven())
