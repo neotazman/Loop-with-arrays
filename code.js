@@ -241,6 +241,18 @@ const oddByFive = () => { // divisible by five, but has to be odd
     return outputDiv
 }
 
+const sumToTwenty = () => { 
+    let outputDiv = document.createElement('p')
+    let totalSum = 0
+
+    for(let i = 0; i <= 20; i++) {
+        totalSum += i
+    }
+
+    outputDiv.append(JSON.stringify(totalSum))
+    return outputDiv
+}
+
 //test the functions
 
 //starting with basic challenge tests
@@ -276,3 +288,5 @@ intermediateChallenge.append(divisibleBySeven())
 intermediateChallenge.append(sevenAndThree())
 
 intermediateChallenge.append(oddByFive())
+
+intermediateChallenge.append(sumToTwenty())
