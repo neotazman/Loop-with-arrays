@@ -264,12 +264,11 @@ const sumToTwenty = () => { //the sum of all the numbers up to twenty
 const upPositives = (a, b) => {
     let outputDiv = document.createElement('p')
 
-    if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a < b) {
+    if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a < b) { // checks that the parameters are correct
         for(let i = a; i <= b; i++) {
-            if(i = b) {
+            if(i === b) {
                 outputDiv.append(JSON.stringify(i))
             } else {
-                console.log(i)
                 outputDiv.append(JSON.stringify(i) + ', ')
             }
         }
