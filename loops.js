@@ -37,8 +37,10 @@ const evenNumbers = (input) => {
     let evenNumbersArr = [] //creates a new array to put all the even numbers
 
     for(let i = 0; i < input.length; i++) { //filters out the odd numbers
-        if(input[i] % 2 === 0) { //automatically rules out non-numbers
+        if(input[i] % 2 === 0 && isNumber(input[i])) {
             evenNumbersArr.push(input[i])
+        } else {
+            continue
         }
     }
 
@@ -58,7 +60,7 @@ const oddNumbers = (input) => {
     let oddNumbersArr = []
 
     for(let i = 0; i < input.length; i++) {
-        if(input[i] % 2 === 1) {
+        if(input[i] % 2 === 1 && isNumber(input[i])) {
             oddNumbersArr.push(input[i])
         }
     }
@@ -79,7 +81,7 @@ const eightNumbers = (input) => { // writes numbers that are divisible by 8
     let eightNumbersArr = []
 
     for(let i = 0; i < input.length; i++) {
-        if(input[i] % 8 === 0) {
+        if(input[i] % 8 === 0 && isNumber(input[i])) {
             eightNumbersArr.push(input[i])
         }
     }
@@ -261,7 +263,7 @@ const sumToTwenty = () => { //the sum of all the numbers up to twenty
     return outputDiv
 }
 
-const upPositives = (a, b) => {
+const upPositives = (a, b) => { //counts every integer from a to b
     let outputDiv = document.createElement('p')
 
     if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a < b) { // checks that the parameters are correct
