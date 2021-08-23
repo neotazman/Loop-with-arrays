@@ -263,7 +263,7 @@ const sumToTwenty = () => { //the sum of all the numbers up to twenty
     return outputDiv
 }
 
-const upPositives = (a, b) => { //counts every integer from a to b
+const upPositives = (a, b) => { //counts every integer up from a to b
     let outputDiv = document.createElement('p')
 
     if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a < b) { // checks that the parameters are correct
@@ -276,6 +276,87 @@ const upPositives = (a, b) => { //counts every integer from a to b
         }
     } else {
         outputDiv.append('Parameters must be positive integers and a must be less than b')
+    }
+
+    return outputDiv
+}
+
+const downPositives = (a, b) => { //counts every integer down from a to b
+    let outputDiv = document.createElement('p')
+
+    if(isInteger(a) && isInteger(b) && a > 0 && b > 0 && a > b) { // checks that the parameters are correct
+        for(let i = a; i >= b; i--) {
+            if(i === b) {
+                outputDiv.append(JSON.stringify(i))
+            } else {
+                outputDiv.append(JSON.stringify(i) + ', ')
+            }
+        }
+    } else {
+        outputDiv.append('Parameters must be positive integers and a must be greater than b')
+    }
+
+    return outputDiv
+}
+
+const upNegatives = (a, b) => { //counts every integer up from a to b to b
+    let outputDiv = document.createElement('p')
+
+    if(isInteger(a) && isInteger(b) && a < 0 && b < 0 && a < b) { // checks that the parameters are correct
+        for(let i = a; i <= b; i++) {
+            if(i === b) {
+                outputDiv.append(JSON.stringify(i))
+            } else {
+                outputDiv.append(JSON.stringify(i) + ', ')
+            }
+        }
+    } else {
+        outputDiv.append('Parameters must be negative integers and a must be less than b')
+    }
+
+    return outputDiv
+}
+
+const downNegatives = (a, b) => { //counts every integer down from a to b
+    let outputDiv = document.createElement('p')
+
+    if(isInteger(a) && isInteger(b) && a < 0 && b < 0 && a > b) { // checks that the parameters are correct
+        for(let i = a; i >= b; i--) {
+            if(i === b) {
+                outputDiv.append(JSON.stringify(i))
+            } else {
+                outputDiv.append(JSON.stringify(i) + ', ')
+            }
+        }
+    } else {
+        outputDiv.append('Parameters must be negative integers and a must be greater than b')
+    }
+
+    return outputDiv
+}
+
+const oddPositiveToNegative = (a, b) => { //counts odd integers down from postive a to negative b
+    let outputDiv = document.createElement('p')
+    let returnArray = []
+
+    if(isInteger(a) && isInteger(b) && a > 0 && b < 0 && a > b) { // checks that the parameters are correct
+        for(let i = a; i >= b; i--) {
+            if(i % 2 === 1 || i % 2 === -1) {
+                returnArray.push(i)
+            } else {
+                continue
+            }
+        }
+    } else {
+        outputDiv.append('Parameters must be integers and a must be greater than b')
+    }
+
+    for(let i = 0; i < returnArray.length; i++) {
+        if(i === returnArray.length - 1) {
+            outputDiv.append(JSON.stringify(returnArray[i]))
+        } else {
+            outputDiv.append(JSON.stringify(returnArray[i]) + ', ')
+        }
     }
 
     return outputDiv
@@ -321,3 +402,15 @@ intermediateChallenge.append(sumToTwenty())
 
 intermediateChallenge.append(upPositives(3, 16))
 intermediateChallenge.append(upPositives(40, '31'))
+
+intermediateChallenge.append(downPositives(27, 4))
+intermediateChallenge.append(downPositives(6))
+
+intermediateChallenge.append(upNegatives(-42, -15))
+intermediateChallenge.append(upNegatives('-40', -23))
+
+intermediateChallenge.append(downNegatives(-4, -30))
+intermediateChallenge.append(downNegatives(-12, 26))
+
+intermediateChallenge.append(oddPositiveToNegative(14, -26))
+intermediateChallenge.append(oddPositiveToNegative(26, "negativ five"))

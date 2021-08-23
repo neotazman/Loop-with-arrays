@@ -1,1 +1,26 @@
 /* Write your CSS here */
+/* * {
+    outline: 1px solid crimson;
+} */
+
+body {
+    background-color: black;
+    font-weight: bold;
+}
+
+div {
+    margin: 4vh;
+    padding: 2vh;
+}
+
+#basicChallenge {
+    background-color: lightgreen;
+    font-size: 3vh;
+    color: darkred;
+} 
+
+#intermediateChallenge {
+    background-color: orange;
+    font-size: 3vh;
+    color: darkblue;
+}
