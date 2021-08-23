@@ -1,7 +1,7 @@
 
 //To be used for the Basic Level:
 const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 398, 339, 882, 848, 179, 535, 940, 472];
-const edgeCaseArray = [6, 24, 865, 300, '84', 5, 324, 'twenty-seven', 52, 8.32, 99, 333.333, 'popsicles']
+const edgeCaseArray = [6, 24, 865, 300, '84', 5, 324, 'twenty-seven', 52, 8.32, 99, 333.333, 'popsicles', 43]
 
 
 // Your code here
@@ -341,7 +341,7 @@ const oddPositiveToNegative = (a, b) => { //counts odd integers down from postiv
 
     if(isInteger(a) && isInteger(b) && a > 0 && b < 0 && a > b) { // checks that the parameters are correct
         for(let i = a; i >= b; i--) {
-            if(i % 2 === 1 || i % 2 === -1) {
+            if(i % 2 === 1 || i % 2 === -1) { //checks for odd numbers
                 returnArray.push(i)
             } else {
                 continue
@@ -413,4 +413,4 @@ intermediateChallenge.append(downNegatives(-4, -30))
 intermediateChallenge.append(downNegatives(-12, 26))
 
 intermediateChallenge.append(oddPositiveToNegative(14, -26))
-intermediateChallenge.append(oddPositiveToNegative(26, "negativ five"))
+intermediateChallenge.append(oddPositiveToNegative(26, "negative five"))
