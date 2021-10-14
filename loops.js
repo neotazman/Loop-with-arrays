@@ -44,13 +44,7 @@ const evenNumbers = (input) => {
         }
     }
 
-    for(let i = 0; i < evenNumbersArr.length; i++) { //writes the even numbers into a string
-        if(i === evenNumbersArr.length - 1) {
-            outputDiv.append(JSON.stringify(evenNumbersArr[i]))
-        } else {
-            outputDiv.append(JSON.stringify(evenNumbersArr[i]) + ', ')
-        }
-    }
+    outputDiv.append(evenNumbersArr.join(', '))
 
     return outputDiv
 }
@@ -65,13 +59,7 @@ const oddNumbers = (input) => {
         }
     }
 
-    for(let i = 0; i < oddNumbersArr.length; i++) {
-        if(i === oddNumbersArr.length - 1) {
-            outputDiv.append(JSON.stringify(oddNumbersArr[i]))
-        } else {
-            outputDiv.append(JSON.stringify(oddNumbersArr[i]) + ', ')
-        }
-    }
+    outputDiv.append(oddNumbersArr.join(', '))
 
     return outputDiv
 }
@@ -86,13 +74,7 @@ const eightNumbers = (input) => { // writes numbers that are divisible by 8
         }
     }
 
-    for(let i = 0; i < eightNumbersArr.length; i++) {
-        if(i === eightNumbersArr.length - 1) {
-            outputDiv.append(JSON.stringify(eightNumbersArr[i]))
-        } else {
-            outputDiv.append(JSON.stringify(eightNumbersArr[i]) + ', ')
-        }
-    }
+    outputDiv.append(eightNumbersArr.join(', '))
 
     return outputDiv
 }
@@ -107,13 +89,7 @@ const squaredNumbers = (input) => {
         }
     }
 
-    for(let i = 0; i < squaredNumbersArr.length; i++) {
-        if(i === squaredNumbersArr.length - 1) {
-            outputDiv.append(JSON.stringify(squaredNumbersArr[i]))
-        } else {
-            outputDiv.append(JSON.stringify(squaredNumbersArr[i]) + ', ')
-        }
-    }
+    outputDiv.append(squaredNumbersArr.join(', '))
 
     return outputDiv
 }
@@ -180,13 +156,8 @@ const divisibleByThree = () => {
         }
     }
 
-    for(let i = 0; i < threeContainer.length; i++) {
-        if(i === threeContainer.length - 1) {
-            outputDiv.append(JSON.stringify(threeContainer[i]))
-        } else {
-            outputDiv.append(JSON.stringify(threeContainer[i]) + ', ')
-        }
-    }
+    outputDiv.append(threeContainer.join(', '))
+
     return outputDiv
 }
 
@@ -200,13 +171,8 @@ const divisibleBySeven = () => {
         }
     }
 
-    for(let i = 0; i < sevenContainer.length; i++) {
-        if(i === sevenContainer.length - 1) {
-            outputDiv.append(JSON.stringify(sevenContainer[i]))
-        } else {
-            outputDiv.append(JSON.stringify(sevenContainer[i]) + ', ')
-        }
-    }
+    outputDiv.append(sevenContainer.join(', '))
+
     return outputDiv
 }
 
@@ -220,13 +186,8 @@ const sevenAndThree = () => { // divisible by seven or three
         }
     }
 
-    for(let i = 0; i < numContainer.length; i++) {
-        if(i === numContainer.length - 1) {
-            outputDiv.append(JSON.stringify(numContainer[i]))
-        } else {
-            outputDiv.append(JSON.stringify(numContainer[i]) + ', ')
-        }
-    }
+    outputDiv.append(numContainer.join(', '))
+
     return outputDiv
 }
 
@@ -240,13 +201,7 @@ const oddByFive = () => { // divisible by five, but has to be odd
         }
     }
 
-    for(let i = 0; i < numContainer.length; i++) {
-        if(i === numContainer.length - 1) {
-            outputDiv.append(JSON.stringify(numContainer[i]))
-        } else {
-            outputDiv.append(JSON.stringify(numContainer[i]) + ', ')
-        }
-    }
+    outputDiv.append(numContainer.join(', '))
 
     return outputDiv
 }
@@ -351,13 +306,7 @@ const oddPositiveToNegative = (a, b) => { //counts odd integers down from postiv
         outputDiv.append('Parameters must be integers and a must be greater than b')
     }
 
-    for(let i = 0; i < returnArray.length; i++) {
-        if(i === returnArray.length - 1) {
-            outputDiv.append(JSON.stringify(returnArray[i]))
-        } else {
-            outputDiv.append(JSON.stringify(returnArray[i]) + ', ')
-        }
-    }
+    outputDiv.append(returnArray.join(', '))
 
     return outputDiv
 }
@@ -391,10 +340,12 @@ basicChallenge.append(largestNumber(edgeCaseArray))
 
 //now the intermediate challenges
 intermediateChallenge.append(divisibleByThree())
+console.log(divisibleByThree())
 
 intermediateChallenge.append(divisibleBySeven())
 
 intermediateChallenge.append(sevenAndThree())
+console.assert(sevenAndThree())
 
 intermediateChallenge.append(oddByFive())
 
