@@ -340,16 +340,19 @@ basicChallenge.append(largestNumber(edgeCaseArray))
 
 //now the intermediate challenges
 intermediateChallenge.append(divisibleByThree())
-console.log(divisibleByThree())
+console.assert(divisibleByThree().innerText === '3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99', "not displaying the container properly")
 
 intermediateChallenge.append(divisibleBySeven())
+console.assert(divisibleBySeven().innerText === '7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98', 'not displaying the container properly')
 
 intermediateChallenge.append(sevenAndThree())
-console.assert(sevenAndThree())
+console.assert(sevenAndThree().innerText === '99, 98, 96, 93, 91, 90, 87, 84, 81, 78, 77, 75, 72, 70, 69, 66, 63, 60, 57, 56, 54, 51, 49, 48, 45, 42, 39, 36, 35, 33, 30, 28, 27, 24, 21, 18, 15, 14, 12, 9, 7, 6, 3', "not displaying the container properly")
 
 intermediateChallenge.append(oddByFive())
+console.assert(oddByFive().innerText === '5, 15, 25, 35, 45, 55, 65, 75, 85, 95', 'not displaying the container properly')
 
 intermediateChallenge.append(sumToTwenty())
+console.assert(sumToTwenty().innerText === '210', "function isn't running properly")
 
 intermediateChallenge.append(upPositives(3, 16))
 intermediateChallenge.append(upPositives(40, '31'))
