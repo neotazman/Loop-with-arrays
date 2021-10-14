@@ -12,13 +12,16 @@ _(Instructions for how to install the unit testing framework and run the unit te
 
 _(Put your project plan here. It could be pseudocode, an outline-style development plan, etc. But whatever form you choose, it should be detailed enough that another developer could feasibly use it to implement your solution.)_
 
+1. write logic to see if the input is a number
+2. write loops for the array to get the answers
+
 ## Reflection
 
 ### Basic and Intermediate Levels Only
 
 For a software developer, what are the benefits of good unit tests? Are there any drawbacks to writing unit tests?
 
-_(Put your reflection answer here.)_
+unit tests are good for checking to see if the functions work as expected to and don't do stuff that they're not supposed to do. as far as writing unit tests, you might not be thinking of all the possible edge cases with unit tests that you write yourself
 
 ### Advanced Level Only
 

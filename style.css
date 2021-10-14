@@ -1,1 +1,30 @@
 /* Write your CSS here */
+/* * {
+    outline: 1px solid crimson;
+} */
+
+body {
+    background-color: black;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+div {
+    margin: 4vh;
+    padding: 2vh;
+    flex-flow: column wrap;
+}
+
+#basicChallenge {
+    background-color: lightgreen;
+    font-size: 3vh;
+    color: darkred;
+} 
+
+#intermediateChallenge {
+    background-color: orange;
+    font-size: 3vh;
+    color: darkblue;
+    flex-flow: row wrap;
+}
