@@ -311,60 +311,81 @@ const oddPositiveToNegative = (a, b) => { //counts odd integers down from postiv
     return outputDiv
 }
 
+const convertToArray = (arrayString) => arrayString.innerText.split(', ').map(string => Number(string)) //i already wrote all the code to convert the results to strings so it's easier to just convert them back
+
+console.log(convertToArray(divisibleBySeven()))
 //test the functions
 
 //starting with basic challenge tests
-basicChallenge.append(allNumbers(sampleArray)) 
-basicChallenge.append(allNumbers(edgeCaseArray)) 
+basicChallenge.append(allNumbers(sampleArray))
+console.assert(Array.isArray(convertToArray(allNumbers(sampleArray))) === true, 'the result is not an array')
+console.assert(convertToArray(allNumbers(sampleArray)).length === sampleArray.length, "it's not converting properly")
 
 basicChallenge.append(evenNumbers(sampleArray)) 
-basicChallenge.append(evenNumbers(edgeCaseArray)) 
+console.assert(convertToArray(evenNumbers(sampleArray)).findIndex((element) => element % 2 === 1) === -1, 'not all numbers are even')
+console.assert(Array.isArray(convertToArray(evenNumbers(sampleArray))) === true, "it's not an array")
 
-basicChallenge.append(oddNumbers(sampleArray)) 
-basicChallenge.append(oddNumbers(edgeCaseArray)) 
+basicChallenge.append(oddNumbers(sampleArray))  
+console.assert(convertToArray(oddNumbers(sampleArray)).findIndex((element) => element % 2 === 1) !== -1, 'not all numbers are odd')
+console.assert(Array.isArray(convertToArray(oddNumbers(sampleArray))) === true, 'out is not an array')
 
-basicChallenge.append(eightNumbers(sampleArray)) 
-basicChallenge.append(eightNumbers(edgeCaseArray)) 
+basicChallenge.append(eightNumbers(sampleArray))  
+console.assert(convertToArray(eightNumbers(sampleArray)).findIndex((element) => element % 8 === 0) !== -1, "not all numbers are divisible by eight")
+console.assert(Array.isArray(convertToArray(eightNumbers(sampleArray))) === true, 'output is not an array')
 
 basicChallenge.append(squaredNumbers(sampleArray)) 
-basicChallenge.append(squaredNumbers(edgeCaseArray)) 
+console.assert(convertToArray(squaredNumbers(sampleArray)).findIndex((element) => Math.sqrt(element) === Math.round(Math.sqrt(element))) !== -1, 'not all numbers are squared')
+console.assert(Array.isArray(convertToArray(squaredNumbers(sampleArray))) === true, "it's not an array")
 
-basicChallenge.append(totalSum(sampleArray)) 
-basicChallenge.append(totalSum(edgeCaseArray)) 
+basicChallenge.append(totalSum(sampleArray))  
+console.assert(typeof parseInt(totalSum(sampleArray)) === 'number', "it's not displaying a number")
+console.assert(parseInt(totalSum(sampleArray).innerText) === sampleArray.reduce((a, b) => a + b), "it's not the total sum")
 
 basicChallenge.append(smallestNumber(sampleArray))
-basicChallenge.append(smallestNumber(edgeCaseArray))
+console.assert(typeof parseInt(smallestNumber(sampleArray)) === 'number', "it's not displaying a number")
+console.assert(parseInt(smallestNumber(sampleArray).innerText) === 20, "it's not displaying the smallest number")
 
 basicChallenge.append(largestNumber(sampleArray))
-basicChallenge.append(largestNumber(edgeCaseArray))
+console.assert(typeof parseInt(largestNumber(sampleArray)) === 'number', "it's not displaying a number")
+console.assert(parseInt(largestNumber(sampleArray).innerText) === 940, "it's not displaying the largest number")
 
 //now the intermediate challenges
 intermediateChallenge.append(divisibleByThree())
 console.assert(divisibleByThree().innerText === '3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99', "not displaying the container properly")
+console.assert(Array.isArray(convertToArray(divisibleByThree())) === true, "it's not displaying an array")
 
 intermediateChallenge.append(divisibleBySeven())
 console.assert(divisibleBySeven().innerText === '7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98', 'not displaying the container properly')
+console.assert(Array.isArray(convertToArray(divisibleBySeven())) === true, "it's not displaying an array")
 
 intermediateChallenge.append(sevenAndThree())
 console.assert(sevenAndThree().innerText === '99, 98, 96, 93, 91, 90, 87, 84, 81, 78, 77, 75, 72, 70, 69, 66, 63, 60, 57, 56, 54, 51, 49, 48, 45, 42, 39, 36, 35, 33, 30, 28, 27, 24, 21, 18, 15, 14, 12, 9, 7, 6, 3', "not displaying the container properly")
+console.assert(Array.isArray(convertToArray(sevenAndThree())) === true, "it's not displaying an array")
 
 intermediateChallenge.append(oddByFive())
 console.assert(oddByFive().innerText === '5, 15, 25, 35, 45, 55, 65, 75, 85, 95', 'not displaying the container properly')
+console.assert(Array.isArray(convertToArray(oddByFive())) === true, "it's not displaying an array")
 
 intermediateChallenge.append(sumToTwenty())
 console.assert(sumToTwenty().innerText === '210', "function isn't running properly")
+console.assert(typeof parseInt(sumToTwenty().innerText) === 'number', "it's not displaying a number")
 
 intermediateChallenge.append(upPositives(3, 16))
-intermediateChallenge.append(upPositives(40, '31'))
+console.assert(Array.isArray(convertToArray(upPositives(8, 24))) === true, "it's not displaying an array")
+console.assert(convertToArray(upPositives(1, 6)).findIndex((element) => element === Math.round(element)) !== -1, "it's not displaying integers")
 
 intermediateChallenge.append(downPositives(27, 4))
-intermediateChallenge.append(downPositives(6))
+console.assert(Array.isArray(convertToArray(downPositives(22, 7))) === true, "it's not displaying an array")
+console.assert(convertToArray(downPositives(16, 4)).findIndex((element) => element === Math.round(element)) !== -1, "it's not displaying integers")
 
 intermediateChallenge.append(upNegatives(-42, -15))
-intermediateChallenge.append(upNegatives('-40', -23))
+console.assert(Array.isArray(convertToArray(upNegatives(-80, -56))) === true, "it's not displaying an array")
+console.assert(convertToArray(upNegatives(-18, -4)).findIndex((element) => element === Math.round(element)) !== -1, "it's not displaying integers")
 
 intermediateChallenge.append(downNegatives(-4, -30))
-intermediateChallenge.append(downNegatives(-12, 26))
+console.assert(Array.isArray(convertToArray(downNegatives(-18, -35))) === true, "it's not displaying an array")
+console.assert(convertToArray(downNegatives(-8, -21)).findIndex((element) => element === Math.round(element)) !== -1, "it's not displaying integers")
 
 intermediateChallenge.append(oddPositiveToNegative(14, -26))
-intermediateChallenge.append(oddPositiveToNegative(26, "negative five"))
+console.assert(Array.isArray(convertToArray(oddPositiveToNegative(16, -35))) === true, "it's not displaying an array")
+console.assert(convertToArray(oddPositiveToNegative(21, -30)).findIndex((element) => element % 2 === 1) !== -1, "they're not all odd")
